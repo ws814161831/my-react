@@ -9,3 +9,5 @@ npm init
 # 创建.gitignore文件
 /admin_app/node_modules
 /admin_app/yarn.lock
+# 创建后台管理
+create-react-app admin
