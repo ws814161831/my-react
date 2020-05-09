@@ -1,0 +1,19 @@
+{
+  "name": "my-react",
+  "version": "1.0.0",
+  "description": "后台：react+antd，服务端：node+koa+mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ws814161831/my-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ws814161831/my-react/issues"
+  },
+  "homepage": "https://github.com/ws814161831/my-react#readme"
+}
