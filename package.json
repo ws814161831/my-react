@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ws814161831/my-react/issues"
   },
-  "homepage": "https://github.com/ws814161831/my-react#readme"
+  "homepage": "https://github.com/ws814161831/my-react#readme",
+  "dependencies": {
+    "antd": "^4.2.0"
+  }
 }
