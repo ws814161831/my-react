@@ -4,11 +4,11 @@
   "description": "后台：react+antd，服务端：node+express+mongodb",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client-ele",
-    "client": "npm start --prefix client-ele",
+    "client-install": "npm install --prefix admin",
+    "admin": "npm start --prefix admin",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run admin\""
   },
   "repository": {
     "type": "git",
