@@ -1,22 +1,31 @@
 {
-  "name": "my-react",
+  "name": "app",
   "version": "1.0.0",
-  "description": "后台：react+antd，服务端：node+koa+mysql",
-  "main": "index.js",
+  "description": "后台：react+antd，服务端：node+express+mongodb",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client-install": "npm install --prefix client-ele",
+    "client": "npm start --prefix client-ele",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ws814161831/my-react.git"
   },
-  "author": "",
+  "author": "ws",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ws814161831/my-react/issues"
-  },
-  "homepage": "https://github.com/ws814161831/my-react#readme",
   "dependencies": {
-    "antd": "^4.2.0"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.9.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.2.0"
   }
 }
