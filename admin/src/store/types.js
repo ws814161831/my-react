@@ -16,3 +16,5 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
  * action type article
  */
 export const SAVE_ARTICLES_LIST = 'SAVE_ARTICLES_LIST';
+export const GET_POSTS = 'GET_POSTS'
+export const POST_LOADDING = "POST_LOADDING";
