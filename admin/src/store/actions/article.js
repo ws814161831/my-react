@@ -3,9 +3,8 @@ import {
     POST_LOADDING
   } from '../types.js';
   
-  import axios from 'axios';
   import apiUrl from '../../config/apiUrl'
-
+  import http from '../../config/http';
 
 // 加载动画
 export const setPostLoading = () => {
@@ -18,7 +17,7 @@ export const setPostLoading = () => {
 // 获取评论
 export const getPosts = () => dispatch => {
     dispatch(setPostLoading);
-    axios.get(apiUrl+"/api/profile")
+    http.get(apiUrl+"/api/profile")
       .then(res =>
         {
             console.log(res)
