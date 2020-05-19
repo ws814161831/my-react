@@ -28,7 +28,7 @@ class BasicLayout extends Component {
           />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
-              <Link to="/">
+              <Link to="/dashboard">
                 <PieChartOutlined />
                 <span>Dashboard</span>
               </Link>
@@ -59,7 +59,7 @@ class BasicLayout extends Component {
               }
             >
               <Menu.Item key="4">
-                <Link to="/article/articleList">文章列表</Link>
+                <Link to="/article/addArticle">添加文章</Link>
               </Menu.Item>
               <Menu.Item key="5">
                 <Link to="/article/articleList">文章列表</Link>

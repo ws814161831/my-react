@@ -3,12 +3,19 @@ import "antd/dist/antd.css";
 import "../style/css/login.css";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import {connect} from 'react-redux'  //引入连接器
+import { loginUser } from '../store/actions/user';
 
 const Login = (props) => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    props.history.push("/index");
+    // props.history.push("/index");
+    props.loginUser(values,props.history);
   };
+
+  // let { login } = props;
+
+
   return (
     <div className="login">
       <Form
@@ -20,7 +27,7 @@ const Login = (props) => {
         onFinish={onFinish}
       >
         <Form.Item
-          name="username"
+          name="name"
           rules={[
             {
               required: true,
@@ -48,7 +55,7 @@ const Login = (props) => {
             placeholder="密码"
           />
         </Form.Item>
-        <Form.Item>
+        {/* <Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>记住密码</Checkbox>
           </Form.Item>
@@ -56,7 +63,7 @@ const Login = (props) => {
           <a className="login-form-forgot" href="/">
             忘记密码
           </a>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item>
           <Button
@@ -73,4 +80,27 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+//需要渲染什么数据
+// 将store里面的state映射给当前组件，成为组件的props
+// 只要 Redux store 发生改变，mapStateToProps 函数就会被调用。该
+// 回调函数必须返回一个纯对象，这个对象会与组件的 props 合并
+const stateToProps = (state) => {
+  return {
+      // inputValue: state.inputValue,
+      // list: state.list
+  }
+}
+
+//需要触发什么行为
+// 将store.dispatch()方法映射到props上
+// const dispatchToProps = (dispatch) => {
+//   return {
+//     login(values,history) {
+//         console.log(values)
+//         console.log(history)
+//         dispatch(loginUser(values))
+//       },
+//   }
+// }
+
+export default connect(stateToProps,{loginUser})(Login);
