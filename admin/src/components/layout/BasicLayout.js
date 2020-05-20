@@ -8,6 +8,7 @@ import AddArticle from "../../view/article/AddArticle";
 import ArticleList from "../../view/article/ArticleList";
 import AddUser from "../../view/user/AddUser";
 import UserList from "../../view/user/UserList";
+import FoundList from "../../view/class/FoundList";
 
 // Header, Footer, Sider, Content组件在Layout组件模块下
 const { Header, Footer, Sider, Content } = Layout;
@@ -65,6 +66,19 @@ class BasicLayout extends Component {
                 <Link to="/article/articleList">文章列表</Link>
               </Menu.Item>
             </SubMenu>
+            <SubMenu
+              key="sub3"
+              title={
+                <span>
+                  <BarsOutlined />
+                  <span>类方式组件</span>
+                </span>
+              }
+            >
+              <Menu.Item key="6">
+                <Link to="/class/foundList">资金列表</Link>
+              </Menu.Item>
+            </SubMenu>            
           </Menu>
         </Sider>
         <Layout>
@@ -88,6 +102,11 @@ class BasicLayout extends Component {
                   path="/article/articleList"
                   exact
                   component={ArticleList}
+                />
+                <Route
+                  path="/class/foundList"
+                  exact
+                  component={FoundList}
                 />
                 
               </div>
