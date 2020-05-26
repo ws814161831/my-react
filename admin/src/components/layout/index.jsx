@@ -13,8 +13,6 @@ const AdminLayout = props => {
   const location = useLocation()
   console.log(location)
   return (
-
-
       <Layout>
         <Sider width={256} style={{ minHeight: "100vh" }}>
           <div

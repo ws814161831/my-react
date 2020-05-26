@@ -13,6 +13,7 @@ export default [
     path: "/home",
     name: '首页',
     icon: 'home',
+    hidden: true,
     component: Layout,
     children: [
         {
@@ -22,6 +23,27 @@ export default [
             component: Home,
             exact: true,
         },
+    ]
+  },
+  {
+    path: '/user',
+    name: '用户管理',
+    component: Layout,
+    children: [
+        {
+            path: "/addUser",
+            name: '添加用户',
+            icon: 'switcher',
+            component: AddUser,
+            exact: true,
+        },
+        {
+            path: "/userList",
+            name: '用户列表列表',
+            icon: 'switcher',
+            component: UserList,
+            exact: true,
+        }
     ]
   },
   {
