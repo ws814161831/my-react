@@ -17,6 +17,7 @@ const SubMenu = Menu.SubMenu;
 
 class BasicLayout extends Component {
   render() {
+    console.log('点击菜单打印:可以在这里进行token判断，token失效跳转到登录页面')
     return (
       <Layout>
         <Sider width={256} style={{ minHeight: "100vh" }}>
