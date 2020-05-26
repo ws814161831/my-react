@@ -11,6 +11,7 @@ const { Sider, Header, Content, Footer } = Layout
 
 const AdminLayout = props => {
   const location = useLocation()
+  console.log(location)
   return (
 
 

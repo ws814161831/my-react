@@ -62,6 +62,9 @@ function AdminSidebar(props) {
 
   const target = menuMenuOpenKeys.find(d => d.pathname === props.selectedKeys[0])
   const openKeys = target ? [target.openKey] : []
+  console.log(menuMenuOpenKeys)
+  console.log(target)
+  console.log(props)
   return (
     <Menu
       defaultOpenKeys={openKeys}
