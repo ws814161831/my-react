@@ -10,7 +10,9 @@ const Login = (props) => {
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
     // props.history.push("/index");
-    props.loginUser(values,props.history);
+    /**1-直接通过action方法调用 */
+    // props.loginUser(values,props.history);
+    props.login(values,props.history);
   };
 
   // let { login } = props;
@@ -84,7 +86,7 @@ const Login = (props) => {
 // 将store里面的state映射给当前组件，成为组件的props
 // 只要 Redux store 发生改变，mapStateToProps 函数就会被调用。该
 // 回调函数必须返回一个纯对象，这个对象会与组件的 props 合并
-const stateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
       // inputValue: state.inputValue,
       // list: state.list
@@ -93,14 +95,15 @@ const stateToProps = (state) => {
 
 //需要触发什么行为
 // 将store.dispatch()方法映射到props上
-// const dispatchToProps = (dispatch) => {
-//   return {
-//     login(values,history) {
-//         console.log(values)
-//         console.log(history)
-//         dispatch(loginUser(values))
-//       },
-//   }
-// }
-
-export default connect(stateToProps,{loginUser})(Login);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login(values,history) {
+        console.log(values)
+        console.log(history)
+        dispatch(loginUser(values,history))
+      },
+  }
+}
+/**1-直接通过action方法调用 */
+// export default connect(stateToProps,{loginUser})(Login);
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

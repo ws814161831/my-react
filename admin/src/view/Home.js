@@ -6,7 +6,7 @@ class Home extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <div>Home</div> );
+        return ( <div>Home1</div> );
     }
 }
  

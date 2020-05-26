@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { message, Spin } from 'antd';
 import '../style/css/public.css'
@@ -42,7 +42,7 @@ axios.interceptors.response.use(response => {
     // 错误提醒
     endLoading()
     const { status } = error.response
-    if (status == 401) {
+    if (status === 401) {
         message.warning('token值无效，请重新登录')
         // 清除token
         localStorage.removeItem('jwtToken')
