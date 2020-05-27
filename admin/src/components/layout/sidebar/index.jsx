@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
-import menu from './menu'
-// import menu from '../../../router/adminRouters'
+// import menu from './menu'
+import menu from '../../../router/adminRouters'
 const SubMenu = Menu.SubMenu
 
 function AdminSidebar(props) {
@@ -12,7 +12,7 @@ function AdminSidebar(props) {
       if (item.children) {
         item.children.forEach(child => {
           list.push({
-            pathname: child.path,
+            pathname: item.path+child.path,
             openKey: item.path
           })
         })
@@ -24,26 +24,30 @@ function AdminSidebar(props) {
 
   // 菜单渲染
   function renderMenu(list) {
-    const renderRoute = (item) => {
+    const renderRoute = (item,routeContextPath) => {
+      let newContextPath = item.path
+      ? `${routeContextPath}/${item.path}`
+      : routeContextPath;
+    newContextPath = newContextPath.replace(/\/+/g, "/");
       if (item.hidden) return null
       if (item.children) {
         return (
           <SubMenu
-            key={item.path}
+            key={newContextPath}
             title={
               <span>
                 {/* {item.icon && <Icon type={item.icon} />} */}
                 <span>{item.name}</span>
               </span>
             }>
-            {item.children.map(r => renderRoute(r))}
+            {item.children.map(r => renderRoute(r,newContextPath))}
           </SubMenu>
         )
       } else {
         return (
           item.name && (
-            <Menu.Item key={item.path}>
-              <NavLink to={item.path}>
+            <Menu.Item key={newContextPath}>
+              <NavLink to={newContextPath}>
                 {/* {item.icon && <Icon type={item.icon} />} */}
                 <span>{item.name}</span>
               </NavLink>
@@ -53,7 +57,7 @@ function AdminSidebar(props) {
       }
     }
 
-    return list.map(l => renderRoute(l))
+    return list.map(l => renderRoute(l, '/'))
   }
 
   const target = menuMenuOpenKeys.find(d => d.pathname === props.selectedKeys[0])

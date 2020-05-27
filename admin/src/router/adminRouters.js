@@ -15,21 +15,27 @@ import Layout from "../components/layout";
  * 
  */
 export default [
-
   {
-    path: "/admin",
+    path: "/home",
     name: '首页',
     icon: 'home',
     hidden: true,
     component: Layout,
     children: [
         {
-            path: "/home",
+            path: "/",
             name: 'home',
             icon: 'switcher',
             component: Home,
             exact: true,
         },
+    ]
+  },
+  {
+    path: '/user',
+    name: '用户管理',
+    component: Layout,
+    children: [
         {
             path: "/addUser",
             name: '添加用户',
@@ -43,7 +49,14 @@ export default [
             icon: 'switcher',
             component: UserList,
             exact: true,
-        },
+        }
+    ]
+  },
+  {
+    path: '/article',
+    name: '文章管理',
+    component: Layout,
+    children: [
         {
             path: "/addArticle",
             name: '添加文章',
@@ -57,7 +70,14 @@ export default [
             icon: 'switcher',
             component: ArticleList,
             exact: true,
-        },
+        }
+    ]
+  },
+  {
+    path: '/found',
+    name: '资金管理',
+    component: Layout,
+    children: [
         {
             path: "/foundList",
             name: '资金列表',
