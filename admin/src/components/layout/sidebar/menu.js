@@ -28,12 +28,12 @@ const menu = [
   // }
 
   {
-    path: "/home",
+    path: "/admin",
     name: '首页',
     icon: 'home',
     children: [
         {
-            path: "/home",
+            path: "/admin/home",
             name: 'home',
             icon: 'switcher',
             exact: true,
@@ -41,17 +41,17 @@ const menu = [
     ]
   },
   {
-    path: '/article',
+    path: '/admin/article',
     name: '文章管理',
     children: [
         {
-            path: "/addArticle",
+            path: "/admin/addArticle",
             name: 'addArticle',
             icon: 'switcher',
             exact: true,
         },
         {
-            path: "/articleList",
+            path: "/admin/articleList",
             name: 'articleList',
             icon: 'switcher',
             exact: true,
@@ -59,11 +59,11 @@ const menu = [
     ]
   },
   {
-    path: '/found',
+    path: '/admin/found',
     name: '资金管理',
     children: [
         {
-            path: "/foundList",
+            path: "/admin/foundList",
             name: 'foundList',
             icon: 'switcher',
             exact: true,
