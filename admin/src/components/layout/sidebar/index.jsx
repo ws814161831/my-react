@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
+import  * as Icon from '@ant-design/icons';
+// import { Icon } from '@ant-design/compatible';//兼容老版本，不推荐使用
 // import menu from './menu'
 import menu from '../../../router/adminRouters2'
 const SubMenu = Menu.SubMenu
@@ -36,6 +38,12 @@ function AdminSidebar(props) {
             key={newContextPath}
             title={
               <span>
+                {
+                  React.createElement(
+                    Icon[item.icon],
+                    {style:{ fontSize: '16px', color: '#08c' }}
+                  )
+                }
                 {/* {item.icon && <Icon type={item.icon} />} */}
                 <span>{item.name}</span>
               </span>
@@ -48,6 +56,12 @@ function AdminSidebar(props) {
           item.name && (
             <Menu.Item key={newContextPath}>
               <NavLink to={newContextPath}>
+              {
+                  React.createElement(
+                    Icon[item.icon],
+                    {style:{ fontSize: '16px', color: '#08c' }}
+                  )
+                }
                 {/* {item.icon && <Icon type={item.icon} />} */}
                 <span>{item.name}</span>
               </NavLink>
