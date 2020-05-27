@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 // import menu from './menu'
-import menu from '../../../router/adminRouters'
+import menu from '../../../router/adminRouters2'
 const SubMenu = Menu.SubMenu
 
 function AdminSidebar(props) {
