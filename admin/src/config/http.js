@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { message, Spin } from 'antd';
 import { remove } from '../libs/storage'
-import '../style/css/public.css'
 
 // 当前正在请求的数量
 let requestCount = 0
