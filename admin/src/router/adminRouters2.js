@@ -75,4 +75,32 @@ export default [
       },
     ],
   },
+  {
+    path: "/one",
+    name: "一级",
+    icon: "SettingFilled",
+    children: [
+      {
+        path: "/foundList",
+        name: "二级1",
+        icon: "SmileOutlined",
+        children: [
+          {
+            path: "/foundList",
+            name: "三级",
+            icon: "SmileOutlined",
+            component: FoundList,
+            exact: true,
+          },
+        ],
+      },
+      {
+        path: "/foundList",
+        name: "二级2",
+        icon: "SmileOutlined",
+        component: FoundList,
+        exact: true,
+      },
+    ],
+  },
 ];

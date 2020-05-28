@@ -7,7 +7,7 @@
 
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import adminRouters from "../router/adminRouters";
+import adminRouters from "../router/adminRouters2";
 import Login from "./Login";
 import Layout from "../components/layout";
 function Main2() {
