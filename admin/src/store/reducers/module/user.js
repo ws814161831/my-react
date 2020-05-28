@@ -1,18 +1,29 @@
 import { SET_CURRENT_USER } from '../../types';
 import { isEmpty } from '../../../libs/utils';
-const initialState = {
+import { save, get } from '../../../libs/storage'
+// import { save, get, remove } from '@/utils/storage'
+let initialState = {
   isAuthenticated: false,
   user: {}
 }
 
-export default function (state = initialState, action) {
+const userInfo = get('userInfo')
 
-  switch (action.type) {
+if (userInfo) {
+  initialState = { ...initialState, ...userInfo }
+}
+
+export default function (state = initialState, action) {
+  const { type, payload } = action
+  switch (type) {
     case SET_CURRENT_USER:
+      const isAuthenticated = !isEmpty(payload)
+      const user = payload
+      save('userInfo', { isAuthenticated, user })
       return {
         ...state,//对象的扩展运算符（...）用于取出参数对象的所有可遍历属性，拷贝到当前对象之中。---ES6: 对象的扩展运算符
-        isAuthenticated: !isEmpty(action.payload),
-        user: action.payload
+        isAuthenticated: isAuthenticated,
+        user: user
       }
     default:
       return state;

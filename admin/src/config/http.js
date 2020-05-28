@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { message, Spin } from 'antd';
+import { remove } from '../libs/storage'
 import '../style/css/public.css'
 
 // 当前正在请求的数量
@@ -45,8 +46,8 @@ axios.interceptors.response.use(response => {
     if (status === 401) {
         message.warning('token值无效，请重新登录')
         // 清除token
-        localStorage.removeItem('jwtToken')
-
+        remove('jwtToken')
+        remove('userInfo')
         // 页面跳转
         window.location.href = '/login'
     }

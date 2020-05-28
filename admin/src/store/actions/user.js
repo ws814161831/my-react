@@ -6,6 +6,7 @@ import {
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from '../../libs/utils';
+import { save } from '../../libs/storage'
 import apiUrl from '../../config/apiUrl'
 
 /**
@@ -49,13 +50,13 @@ export const loginUser = (userData, history) => dispatch => {
       const { token } = res.data;
       // console.log(token);
       // 存储token到LS
-      localStorage.setItem("jwtToken", token);
+      save("jwtToken", token);
       // 设置axios的headers token
       setAuthToken(token);
 
       // 解析token
       const decoded = jwt_decode(token);
-      // console.log(decoded);
+      console.log(decoded);
       dispatch(setCurrentUser(decoded));
       history.push("/home")
       

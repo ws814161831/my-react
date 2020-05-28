@@ -3,8 +3,9 @@ import "antd/dist/antd.css";
 import "../style/css/login.css";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import {connect} from 'react-redux'  //引入连接器
+import {connect,useSelector} from 'react-redux'  //引入连接器
 import { loginUser } from '../store/actions/user';
+
 
 const Login = (props) => {
   const onFinish = (values) => {
@@ -16,7 +17,12 @@ const Login = (props) => {
   };
 
   // let { login } = props;
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated) // 相当于 connect(state => state.user.role)(App)
 
+  if (isAuthenticated) {
+    // 如果是登陆状态，想要跳转到登陆，重定向到主页
+      props.history.push("/");
+  } 
 
   return (
     <div className="login">
