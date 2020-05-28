@@ -11,3 +11,32 @@
     z-index: 9999;
     font-size: 20px;
 }
+
+.logo {
+    position: relative;
+    padding: 0 24px;
+    overflow: hidden;
+    background: #001529;
+    cursor: pointer;
+    transition: all .3s;
+
+  }
+  .logo a {
+    display: flex;
+    align-items: center;
+    height: 64px;
+}
+  .logo img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 32px;
+  }
+  .logo h1 {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    margin: 0 0 0 12px;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useLocation } from 'react-router-dom'
-
+import { useLocation, Link } from 'react-router-dom'
+import logo from '../../assets/logo.svg';
 import { Layout } from 'antd'
 import AdminSideBar from './sidebar'
 // import AdminHeader from './header'
@@ -24,13 +24,19 @@ const AdminLayout = props => {
   return (
       <Layout>
         <Sider width={256} style={{ minHeight: "100vh" }}>
-          <div
+          {/* <div
             style={{
               height: "32px",
               background: "rgba(255,255,255,.2)",
               margin: "16px",
             }}
-          />
+          /> */}
+          <div className='logo' id="logo">
+          <Link to="/">
+            <img src={logo} alt="logo" />
+            <h1>Ant Design</h1>
+          </Link>
+        </div>
           <AdminSideBar selectedKeys={[location.pathname]} />
         </Sider>
 

@@ -13,6 +13,14 @@ import FoundList from "../view/class/FoundList";
  */
 export default [
   {
+    path: "/",
+    name: "home",
+    icon: "HomeOutlined",
+    component: Home,
+    exact: true,
+    hidden: true,
+  },
+  {
     path: "/home",
     name: "home",
     icon: "HomeOutlined",

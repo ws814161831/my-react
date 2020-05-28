@@ -81,6 +81,7 @@ function AdminSidebar(props) {
   // console.log(props)
   return (
     <Menu
+      style={{padding: "16px 0px"}}
       defaultOpenKeys={openKeys}
       // defaultSelectedKeys={props.selectedKeys}
       selectedKeys={props.selectedKeys}
