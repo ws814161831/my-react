@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "../style/css/login.css";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import {connect,useSelector} from 'react-redux'  //引入连接器
 import { loginUser } from '../store/actions/user';

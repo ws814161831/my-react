@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { Layout } from 'antd'
 import AdminSideBar from './sidebar'
@@ -9,9 +9,18 @@ import AdminSideBar from './sidebar'
 
 const { Sider, Header, Content, Footer } = Layout
 
+/**
+ * router 将在这几个地方为您提供一个 location 对象：
+      Route component as this.props.location
+      Route render as ({ location }) => ()
+      Route children as ({ location }) => ()
+      withRouter as this.props.location
+ */
+
 const AdminLayout = props => {
   const location = useLocation()
   console.log(location)
+  console.log(props.location)
   return (
       <Layout>
         <Sider width={256} style={{ minHeight: "100vh" }}>
