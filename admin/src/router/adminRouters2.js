@@ -63,7 +63,7 @@ export default [
   },
   {
     path: "/found",
-    name: "资金管理",
+    name: "类方式组件",
     icon: "SettingFilled",
     children: [
       {
