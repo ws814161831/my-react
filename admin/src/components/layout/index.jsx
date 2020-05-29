@@ -6,7 +6,7 @@ import { Layout } from 'antd'
 import AdminSideBar from './sidebar'
 // import AdminHeader from './header'
 // import Breadcrumb from '@/components/Breadcrumb'
-
+import Breadcrumb from './breadcrumb'
 const { Sider, Header, Content, Footer } = Layout
 
 /**
@@ -46,7 +46,7 @@ const AdminLayout = props => {
           >
             Header
           </Header>
-          {/* <Breadcrumb /> */}
+          <Breadcrumb selectedKeys={[location.pathname]} />
           <Content className='admin-content' style={{ margin: "24px 16px 0" }}>
             <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
               {props.children}

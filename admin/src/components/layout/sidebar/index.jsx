@@ -8,6 +8,7 @@ import menu from '../../../router/adminRouters2'
 const SubMenu = Menu.SubMenu
 
 function AdminSidebar(props) {
+  //这里有个小bug，如果是三级菜单时，没有获取第三级的路径
   function getMenuOpenKeys(menu) {
     const list = []
     menu.forEach(item => {
