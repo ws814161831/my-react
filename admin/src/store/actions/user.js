@@ -6,7 +6,7 @@ import {
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from '../../libs/utils';
-import { save } from '../../libs/storage'
+import { save, remove } from '../../libs/storage'
 import apiUrl from '../../config/apiUrl'
 
 /**
@@ -74,7 +74,8 @@ export const loginUser = (userData, history) => dispatch => {
 // logout
 export const logoutUser = () => dispatch => {
   // 删除ls
-  localStorage.removeItem("jwtToken");
+  // localStorage.removeItem("jwtToken");
+  remove('jwtToken')
   // 干掉请求头
   setAuthToken(false);
   // 链接reducer

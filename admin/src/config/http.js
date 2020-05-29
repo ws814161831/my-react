@@ -2,7 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { message, Spin } from 'antd';
-import { remove } from '../libs/storage'
+// import { remove } from '../libs/storage'
+import { logoutUser } from '../store/actions/user';
+import store from '../store';
 
 /**
  * 这里定义的startLoading、endLoading是接口加载中的显示
@@ -49,8 +51,9 @@ axios.interceptors.response.use(response => {
     if (status === 401) {
         message.warning('token值无效，请重新登录')
         // 清除token
-        remove('jwtToken')
-        remove('userInfo')
+        store.dispatch(logoutUser());
+        // remove('jwtToken')
+        // remove('userInfo')
         // 页面跳转
         window.location.href = '/login'
     }
