@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { PieChartOutlined, BarsOutlined } from "@ant-design/icons";
 
@@ -9,6 +9,7 @@ import ArticleList from "../../view/article/ArticleList";
 import AddUser from "../../view/user/AddUser";
 import UserList from "../../view/user/UserList";
 import FoundList from "../../view/class/FoundList";
+import Error404 from "../../view/error/404";
 
 // Header, Footer, Sider, Content组件在Layout组件模块下
 const { Header, Footer, Sider, Content } = Layout;
@@ -30,7 +31,7 @@ class BasicLayout extends Component {
           />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
-              <Link to="/dashboard">
+              <Link to="/">
                 <PieChartOutlined />
                 <span>Dashboard</span>
               </Link>
@@ -91,6 +92,7 @@ class BasicLayout extends Component {
           <Content style={{ margin: "24px 16px 0" }}>
             <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
               <div>
+                <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/user/addUser" exact component={AddUser} />
                 <Route path="/user/userList" exact component={UserList} />
@@ -109,7 +111,9 @@ class BasicLayout extends Component {
                   exact
                   component={FoundList}
                 />
-                
+                 <Route path="*" component={Error404} />
+                {/* <Redirect from="*" to="/404"></Redirect> */}
+                </Switch>
               </div>
             </div>
           </Content>
