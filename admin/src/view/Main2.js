@@ -6,9 +6,10 @@
  */
 
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import adminRouters from "../router/adminRouters2";
 import Login from "./Login";
+import {useSelector} from 'react-redux'  //引入连接器
 import Layout from "../components/layout";
 // const Layout = React.lazy(() => import('../components/layout'));//Suspense放到layout里面按需加载子菜单组件，放到外面会有全局刷新
 import { Spin } from 'antd';
@@ -16,7 +17,13 @@ import { Spin } from 'antd';
  * 这里定义的<Spin tip="Loading..." size="large"/>是组件加载中的显示，一般项目使用这个就可以了
  */
 
+
+
+
 function Main2() {
+
+  const isAuthenticated = useSelector(state => state.user.isAuthenticated) // 相当于 connect(state => state.user.role)(App)
+  
   const renderRoute = (r, newPath) => (
     <Route
       key={r.path}
@@ -32,6 +39,10 @@ function Main2() {
    * @returns {*}
    */
   function mapRoutes(routeList, routePath) {
+    if (!isAuthenticated) {
+      // 如果是非登陆状态，重定向到登录页
+      return <Redirect to={'/login'} />;
+    } 
     return routeList.map((r) => {
       let newPath = r.path ? `${routePath}/${r.path}` : routePath;
       newPath = newPath.replace(/\/+/g, "/");
