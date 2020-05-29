@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom';
 import { message, Spin } from 'antd';
 import { remove } from '../libs/storage'
 
+/**
+ * 这里定义的startLoading、endLoading是接口加载中的显示
+ */
+
 // 当前正在请求的数量
 let requestCount = 0
 
@@ -26,7 +30,7 @@ function endLoading() {
 // 请求拦截  设置统一header
 axios.interceptors.request.use(config => {
     // 加载
-    startLoading()
+    // startLoading()
     if (localStorage.jwtToken)
         config.headers.Authorization = localStorage.jwtToken
     return config
@@ -36,11 +40,11 @@ axios.interceptors.request.use(config => {
 
 // 响应拦截  401 token过期处理
 axios.interceptors.response.use(response => {
-    endLoading()
+    // endLoading()
     return response
 }, error => {
     // 错误提醒
-    endLoading()
+    // endLoading()
     const { status } = error.response
     if (status === 401) {
         message.warning('token值无效，请重新登录')
