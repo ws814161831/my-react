@@ -5,11 +5,17 @@
  * 2、在当前页面中引入routes.js配置文件，用于配置react的路由组件映射
  */
 
-import React from "react";
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import adminRouters from "../router/adminRouters2";
 import Login from "./Login";
 import Layout from "../components/layout";
+// const Layout = React.lazy(() => import('../components/layout'));//Suspense放到layout里面按需加载子菜单组件，放到外面会有全局刷新
+import { Spin } from 'antd';
+/**
+ * 这里定义的<Spin tip="Loading..." size="large"/>是组件加载中的显示，一般项目使用这个就可以了
+ */
+
 function Main2() {
   const renderRoute = (r, newPath) => (
     <Route
@@ -38,13 +44,17 @@ function Main2() {
   }
 
   const child = mapRoutes(adminRouters, "/");
-
   return (
     <Router>
       <Switch>
         <Route path="/login" exact component={Login} />
-        <Layout>{child}</Layout>
+          <Layout>
+            <Suspense fallback={<div  style={{ paddingTop: 100, textAlign: 'center' }} ><Spin tip="Loading..." size="large"/></div> }>
+              {child}
+            </Suspense>
+          </Layout>
       </Switch>
+     
     </Router>
   );
 }
