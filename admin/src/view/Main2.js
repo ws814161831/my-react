@@ -61,7 +61,7 @@ function Main2() {
         <Route path="/login" exact component={Login} />
           <Layout>
             <Suspense fallback={<div  style={{ paddingTop: 100, textAlign: 'center' }} ><Spin tip="Loading..." size="large"/></div> }>
-              {child}
+              <Switch>{child}</Switch>
             </Suspense>
           </Layout>
       </Switch>

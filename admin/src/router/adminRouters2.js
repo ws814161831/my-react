@@ -13,6 +13,7 @@ const ArticleList = React.lazy(() => import('../view/article/ArticleList'));
 const AddUser = React.lazy(() => import('../view/user/AddUser'));
 const UserList = React.lazy(() => import('../view/user/UserList'));
 const FoundList = React.lazy(() => import('../view/class/FoundList'));
+const Error404 = React.lazy(() => import('../view/error/404'));
 
 /**
  * 此方式和umi-antd-pro比较像：F:\web-project\react-project\react-blog-biaochenxuying\blog-react-admin\config\router.config.js
@@ -119,5 +120,12 @@ export default [
         exact: true,
       },
     ],
+  },
+  {
+    path: "*",
+    name: "error404",
+    icon: "HomeOutlined",
+    component: Error404,
+    hidden: true,
   },
 ];
