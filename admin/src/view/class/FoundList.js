@@ -12,9 +12,15 @@ class FoundList extends Component {
     };
   }
   componentDidMount() {
+    this.setState({
+      loading: true
+    })
     http
       .get(apiUrl + "/api/profile")
       .then((res) => {
+        this.setState({
+          loading: false
+        })
         console.log(res.data);
         this.setState({
           list: res.data,
