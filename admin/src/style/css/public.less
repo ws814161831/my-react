@@ -42,3 +42,41 @@
     font-weight: 600;
   }
 }
+
+.admin-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  .header-title {
+    font-size: 24px;
+    margin-left: 16px;
+  }
+  .header-right {
+    margin-right: 16px;
+    display: flex;
+    float: right;
+    height: 64px;
+    margin-left: auto;
+    overflow: hidden;
+    .header-dropdown {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 12px;
+      cursor: pointer;
+      transition: all .3s;
+      img {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        border-radius: 50%;
+        margin: 0 5px;
+      }
+    }
+  }
+}
+

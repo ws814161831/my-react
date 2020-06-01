@@ -4,7 +4,7 @@ import { useLocation, Link } from 'react-router-dom'
 import logo from '../../assets/logo.svg';
 import { Layout } from 'antd'
 import AdminSideBar from './sidebar'
-// import AdminHeader from './header'
+import AdminHeader from './header'
 // import Breadcrumb from '@/components/Breadcrumb'
 import Breadcrumb from './breadcrumb'
 const { Sider, Header, Content, Footer } = Layout
@@ -41,10 +41,9 @@ const AdminLayout = props => {
         </Sider>
 
         <Layout className='admin-content-wrap'>
-          <Header
-            style={{ background: "#fff", textAlign: "center", padding: 0 }}
+          <Header style={{ background: "#fff", textAlign: "center", padding: 0 }}
           >
-            Header
+            <AdminHeader />
           </Header>
           <Breadcrumb selectedKeys={[location.pathname]} />
           <Content className='admin-content' style={{ margin: "24px 16px 0" }}>
