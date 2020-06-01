@@ -73,7 +73,7 @@ export default [
       },
       {
         path: "/articleList",
-        name: "文章列表",
+        name: "redux-class方式",
         icon: "SmileOutlined",
         component: ArticleList,
         exact: true,
