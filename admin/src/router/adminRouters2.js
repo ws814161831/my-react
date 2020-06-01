@@ -10,6 +10,7 @@ import React from 'react';
 const Home = React.lazy(() => import('../view/Home'));
 const AddArticle = React.lazy(() => import('../view/article/AddArticle'));
 const ArticleList = React.lazy(() => import('../view/article/ArticleList'));
+const ArticleList2 = React.lazy(() => import('../view/article/ArticleList2'));
 const AddUser = React.lazy(() => import('../view/user/AddUser'));
 const UserList = React.lazy(() => import('../view/user/UserList'));
 const FoundList = React.lazy(() => import('../view/class/FoundList'));
@@ -75,6 +76,13 @@ export default [
         name: "文章列表",
         icon: "SmileOutlined",
         component: ArticleList,
+        exact: true,
+      },
+      {
+        path: "/articleList2",
+        name: "redux-function方式",
+        icon: "SmileOutlined",
+        component: ArticleList2,
         exact: true,
       },
     ],
