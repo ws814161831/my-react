@@ -7,10 +7,10 @@
 
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import adminRouters from "../router/adminRouters2";
+import adminRouters from "@/router/adminRouters2";
 import Login from "./Login";
 import {useSelector} from 'react-redux'  //引入连接器
-import Layout from "../components/layout";
+import Layout from "@/components/layout";
 // const Layout = React.lazy(() => import('../components/layout'));//Suspense放到layout里面按需加载子菜单组件，放到外面会有全局刷新
 import { Spin } from 'antd';
 /**
