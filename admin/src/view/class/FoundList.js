@@ -3,6 +3,9 @@ import { Table } from "antd";
 import http from "../../config/http";
 import apiUrl from "../../config/apiUrl";
 
+/**
+ * 有状态组件
+ */
 class FoundList extends Component {
   constructor(props) {
     super(props);

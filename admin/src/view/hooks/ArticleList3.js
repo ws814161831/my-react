@@ -3,6 +3,9 @@ import http from "../../config/http";
 import apiUrl from "../../config/apiUrl";
 import { Table } from "antd";
 
+/**
+ * hooks+无状态组件
+ */
 const ArticleList = (props) => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);

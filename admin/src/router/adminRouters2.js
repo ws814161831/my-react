@@ -62,7 +62,7 @@ export default [
   },
   {
     path: "/article",
-    name: "文章管理",
+    name: "使用react-redux方式组件",
     icon: "SettingFilled",
     children: [
       {

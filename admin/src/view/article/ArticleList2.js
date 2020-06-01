@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import * as actionCreators  from '../../store/actions/article';
 import { Table, Button } from 'antd'
 
+/**
+ * react-redux+无状态组件
+ */
 const ArticleList = (props) => {
 
       let { articlelist, articleLoading, initArticlelist } = props;

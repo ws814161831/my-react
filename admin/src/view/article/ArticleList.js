@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import * as actionCreators  from '../../store/actions/article';
 import { Table } from 'antd'
 
+/**
+ * react-redux+有状态组件
+ */
 class ArticleList extends Component {
     constructor(props) {
         super(props);
