@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'antd'
 import menu from '../../../router/adminRouters2'
+import { HomeOutlined } from '@ant-design/icons'
 
 /**
  * 面包屑
@@ -32,13 +33,14 @@ function PvBreadcurmb(props) {
   console.log(breadNames)
 
   return (
-    <Breadcrumb style={{ margin: '16px 0' }}>
+    <Breadcrumb style={{ margin: '24px 24px 0' }}>
       <Breadcrumb.Item>
           <Link to={'/home'}>首页</Link>
       </Breadcrumb.Item>
       {breadNames.map((item, index) => (
         <Breadcrumb.Item key={index}>
-          <Link to={ breadPath } >{item}</Link>
+          {/* { index < breadNames.length - 1 ? <Link to={ breadPath } >{item}</Link> : <span>{item}</span> } */}
+          {item}
         </Breadcrumb.Item>
       ))}
     </Breadcrumb>
