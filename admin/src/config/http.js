@@ -5,6 +5,7 @@ import { message, Spin } from 'antd';
 // import { remove } from '../libs/storage'
 import { logoutUser } from '../store/actions/user';
 import store from '../store';
+import apiUrl from "@/config/apiUrl";
 
 /**
  * 这里定义的startLoading、endLoading是接口加载中的显示
@@ -29,8 +30,17 @@ function endLoading() {
     }
 }
 
+
+// 封装axiox接口ip地址
+const service = axios.create({
+    baseURL: apiUrl,
+    // withCredentials: true, // send cookies when cross-domain requests
+    timeout: 10000 // request timeout
+  })
+
+
 // 请求拦截  设置统一header
-axios.interceptors.request.use(config => {
+service.interceptors.request.use(config => {
     // 加载
     // startLoading()
     if (localStorage.jwtToken)
@@ -41,7 +51,7 @@ axios.interceptors.request.use(config => {
 })
 
 // 响应拦截  401 token过期处理
-axios.interceptors.response.use(response => {
+service.interceptors.response.use(response => {
     // endLoading()
     return response
 }, error => {
@@ -61,4 +71,4 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error)
 })
 
-export default axios
+export default service

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "antd";
 import http from "../../config/http";
-import apiUrl from "../../config/apiUrl";
 
 /**
  * 有状态组件
@@ -19,7 +18,7 @@ class FoundList extends Component {
       loading: true
     })
     http
-      .get(apiUrl + "/api/profile")
+      .get("/api/profile")
       .then((res) => {
         this.setState({
           loading: false
