@@ -30,8 +30,11 @@ function PvBreadcurmb(props) {
   const breadNames = breadcrumb ? breadcrumb.names : [] 
   const breadPath =breadcrumb ?  breadcrumb.pathname : '/home'
   // const breadcrumbList = list.length > 0 ? [{ path: '/home', name: '首页' }].concat(list) : []
-  console.log(breadNames)
-
+  // console.log(breadNames)
+  /**
+   *  forEach()方法不会返回执行结果,所以需要定义一个变量返回新数组，没有map方便
+   */
+  // let arr = []
   return (
     <Breadcrumb style={{ margin: '24px 24px 0' }}>
       <Breadcrumb.Item>
@@ -43,6 +46,17 @@ function PvBreadcurmb(props) {
           {item}
         </Breadcrumb.Item>
       ))}
+      {/* {
+       
+        breadNames.forEach( item => {
+          arr.push(
+              <Breadcrumb.Item>
+              {item}
+            </Breadcrumb.Item>
+          )
+        })
+      }
+      {arr} */}
     </Breadcrumb>
   )
 }
