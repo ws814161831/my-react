@@ -39,8 +39,8 @@ function Main2() {
    * @returns {*}
    */
   function mapRoutes(routeList, routePath) {
-    //退出登录时，isAuthenticated为false
-    console.log(isAuthenticated)
+    //退出登录时，isAuthenticated为false,Redirect跳转时会重新渲染这个方法，跳转到login
+    // console.log(isAuthenticated)
     if (!isAuthenticated) {
       // 如果是非登陆状态，重定向到登录页
       return <Redirect to={'/login'} />;

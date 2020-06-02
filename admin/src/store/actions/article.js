@@ -3,7 +3,6 @@ import {
     POST_LOADDING
   } from '../types.js';
   
-  import apiUrl from '../../config/apiUrl'
   import http from '../../config/http';
 
 // 加载动画
@@ -17,7 +16,7 @@ export const setPostLoading = () => {
 // 获取评论
 export const getPosts = () => dispatch => {
     dispatch(setPostLoading);
-    http.get(apiUrl+"/api/profile")
+    http.get("/api/profile")
       .then(res =>
         {
             console.log(res)

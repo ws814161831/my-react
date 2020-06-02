@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import http from "../../config/http";
-import apiUrl from "../../config/apiUrl";
 import { Table } from "antd";
 
 /**
@@ -14,7 +13,7 @@ const ArticleList = (props) => {
   const getList = () => {
     setLoading(true);
     http
-      .get(apiUrl + "/api/profile")
+      .get("/api/profile")
       .then((res) => {
         setLoading(false);
         setList(res.data);
